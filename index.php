@@ -1,1 +1,1 @@
-<?php include_once("verbalplusvisual.html"); ?>
+<?php include_once("rps.html"); ?>
