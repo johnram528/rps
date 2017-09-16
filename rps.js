@@ -23,12 +23,12 @@ let newRound = function() {
     return choice
   })
   let computer = computerChoice()
-  let round = compare(userChoice,computer)
-  if(round[round.length-1][0]==round[round.length-1][1]) { //check if move results in tie
-    let tieRound = round                                 //new variable to hold data from last move
-    userChoice = prompt("TIE! Please select again.")
-    computer = computerChoice()
-    round = compare(userChoice,computer, tieRound)     //if tied we send the last move along with current move and continue until tie is broken
+  let round = compare(userChoice,'r')
+  while(round[round.length-1][0] == round[round.length-1][1]) { //check if move results in tie
+    let tieRound = round;                                 //new variable to hold data from last move
+    userChoice = prompt("TIE! Please select again.");
+    computer = computerChoice();
+    round = compare(userChoice,'r', tieRound);     //if tied we send the last move along with current move and continue until tie is broken
   }
   return round
 }
@@ -53,6 +53,7 @@ let combination = (function(move){                      //helper used to determi
   if(move == 'sp'){
     return 'player 1'
   }
+
 })
 
 //counters
