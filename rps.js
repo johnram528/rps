@@ -23,12 +23,12 @@ let newRound = function() {
     return choice
   })
   let computer = computerChoice()
-  let round = compare(userChoice,'r')
-  while(round[round.length-1][0] == round[round.length-1][1]) { //check if move results in tie
+  let round = compare(userChoice, computer)
+  while(round[round.length-1][0] == round[round.length-1][1]) { //check if move results in tie. switched from if to while for multiple ties in a round
     let tieRound = round;                                 //new variable to hold data from last move
     userChoice = prompt("TIE! Please select again.");
     computer = computerChoice();
-    round = compare(userChoice,'r', tieRound);     //if tied we send the last move along with current move and continue until tie is broken
+    round = compare(userChoice, computer, tieRound);     //if tied we send the last move along with current move and continue until tie is broken
   }
   return round
 }
